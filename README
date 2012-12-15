@@ -1,0 +1,4 @@
+RECIPES
+["controllers", "extras", "frontend", "gems", "git", "init", "models", "routes", "setup", "testing", "views"]
+PREFERENCES
+{:git=>true, :dev_webserver=>"puma", :prod_webserver=>"puma", :database=>"mongodb", :orm=>"mongoid", :templates=>"slim", :unit_test=>"rspec", :integration=>"cucumber", :fixtures=>"factory_girl", :frontend=>"foundation", :email=>"none", :authentication=>"devise", :devise_modules=>"default", :authorization=>"cancan", :form_builder=>"simple_form", :starter_app=>"admin_app"}
