@@ -1,19 +1,74 @@
-doctype
+doctype 5
 html
   head
     meta content="width=(device-width,)initial-scale=1.0" name="viewport"
       title= content_for?(:title) ? yield(:title) : "Mytechbooks"
-      meta content=(content_for?(:description) ? yield(:description) :)"Mytechbooks" name="description"
+      meta content=(content_for?(:description) ? yield(:description) : "Mytechbooks") name="description"
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
         = csrf_meta_tags
         = yield(:head)
-  body{:class => "#{controller_name} # action_name}"
-    #container.container
-      header
-        = render 'layouts/navigation'
-        = render 'layouts/messages'
-      #main role="main"
-        = yield
-      footer
+  body *{:class => "#{controller_name} #{action_name}"}
+    .row
+      .twelve.columns
+
+        .row
+          .twelve.columns
+            nav.top-bar
+              ul.top-bar
+                li.name
+                  h1
+                    a href="#" MyTechBooks.com
+                li.toggle-topbar
+                  a href="#"
+              section
+                ul.left
+                  li
+                    a href="#" Link 1
+                  li
+                    a href="#" Link 2
+                  li
+                    a href="#" Link 3
+        .row
+          = render 'layouts/messages'
+          .twelve.columns
+            .row
+
+              .two.columns
+                img src="http://placehold.it/1000x1000&text=Thumbnail"
+              .ten.columns
+                h5 Item Name
+                h6.subheader Freddy George (Dec 2011)
+                dl
+                  dd MSRP: $100.00
+                  dd Pages: 345
+              hr
+
+              .two.columns
+                img src="http://placehold.it/1000x1000&text=Thumbnail"
+              .ten.columns
+                h5 Item Name
+                h6.subheader Freddy George (Dec 2011)
+                dl
+                  dd MSRP: $100.00
+                  dd Published : December 2011
+                  dd Pages: 345
+
+              hr
+
+              .two.columns
+                img src="http://placehold.it/1000x1000&text=Thumbnail"
+              .ten.columns
+                h5 Item Name
+                h6.subheader Freddy George (Dec 2011)
+                dl
+                  dd MSRP: $100.00
+                  dd Published : December 2011
+                  dd Pages: 345
+
+        footer class="row"
+          .twelve.columns
+            .row
+              .six.columns
+                p &copy; Copyright 2012 - Finish First Software
     /! ! end of #container

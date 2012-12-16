@@ -4,12 +4,14 @@ gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem "puma", ">= 1.6.2"
 gem "mongoid", ">= 3.0.5"
+gem 'slim-rails', '~> 1.0.3'
 gem "slim", ">= 1.2.2"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.2"
-gem "draper"
+gem "draper", '~> 0.18.0'
+gem 'redis-store', '~> 1.1.3'
 
 
 group :assets do
