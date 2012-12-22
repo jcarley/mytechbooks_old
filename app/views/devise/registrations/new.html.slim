@@ -1,21 +1,28 @@
-h2 Sign up
+h3 Sign up
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
-  p
-    = f.label :name
-    br/
-    = f.text_field :name
-  div
-    = f.label :email
-    br/
-    = f.email_field :email
-  div
-    = f.label :password
-    br/
-    = f.password_field :password
-  div
-    = f.label :password_confirmation
-    br/
-    = f.password_field :password_confirmation
-  div= f.submit "Sign up"
+  .row
+    .two.columns
+      = f.label :name, :class => "right inline"
+    .ten.columns
+      = f.text_field :name, :class => "six"
+  .row
+    .two.columns
+      = f.label :email, :class => "right inline"
+    .ten.columns
+      = f.email_field :email, :class => "six"
+  .row
+    .two.columns
+      = f.label :password, :class => "right inline"
+    .ten.columns
+      = f.password_field :password, :class => "six"
+  .row
+    .two.columns
+      = f.label :password_confirmation, :class => "right inline"
+    .ten.columns
+      = f.password_field :password_confirmation, :class => "six"
+  .row
+    .eight.columns
+      = f.submit "Sign up", :class => "button"
+
 = render "devise/shared/links"

@@ -22,7 +22,6 @@ module Mytechbooks
     config.generators do |g|
       g.view_specs false
       g.helper_specs false
-      
     end
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -31,7 +30,7 @@ module Mytechbooks
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/infrastructure)
 
 
     # Only load the plugins named here, in the order given (default is alphabetical).

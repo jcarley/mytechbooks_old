@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<ItemSearchResponse xmlns="http://webservices.amazon.com/AWSECommerceService/2011-08-01">
+
+  <OperationRequest>
+    <RequestId>6ff157b6-ce74-497d-a536-5a469ac4c555</RequestId>
+    <Arguments>
+      <Argument Name="Operation" Value="ItemSearch"></Argument>
+      <Argument Name="Service" Value="AWSECommerceService">
+      </Argument>
+      <Argument Name="Signature"
+      Value="e8vOY+rcN41sImSV2uKPN4zT4vXJUOnIF5f65n5ma/w=">
+      </Argument>
+      <Argument Name="AssociateTag" Value="wwwjefferso02-20">
+      </Argument>
+      <Argument Name="Version" Value="2011-08-01"></Argument>
+      <Argument Name="Keywords" Value="0321659368"></Argument>
+      <Argument Name="AWSAccessKeyId" Value="12VVZFFGCXXK8A0B40G2">
+      </Argument>
+      <Argument Name="Timestamp" Value="2012-12-16T22:24:49Z">
+      </Argument>
+      <Argument Name="ResponseGroup" Value="Medium"></Argument>
+      <Argument Name="SearchIndex" Value="Books"></Argument>
+    </Arguments>
+    <RequestProcessingTime>
+    0.0748230000000000</RequestProcessingTime>
+  </OperationRequest>
+  <Items>
+    <Request>
+      <IsValid>True</IsValid>
+      <ItemSearchRequest>
+        <Keywords>0321659368</Keywords>
+        <ResponseGroup>Medium</ResponseGroup>
+        <SearchIndex>Books</SearchIndex>
+      </ItemSearchRequest>
+    </Request>
+    <TotalResults>1</TotalResults>
+    <TotalPages>1</TotalPages>
+    <MoreSearchResultsUrl>
+    http://www.amazon.com/gp/redirect.html?camp=2025&amp;creative=386001&amp;location=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fsearch%3Fkeywords%3D0321659368%26url%3Dsearch-alias%253Dstripbooks&amp;linkCode=xm2&amp;tag=wwwjefferso02-20&amp;SubscriptionId=12VVZFFGCXXK8A0B40G2</MoreSearchResultsUrl>
+    <Item>
+      <ASIN>0321659368</ASIN>
+      <DetailPageURL>
+      http://www.amazon.com/Service-Oriented-Design-Addison-Wesley-Professional-Series/dp/0321659368%3FSubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0321659368</DetailPageURL>
+      <ItemLinks>
+        <ItemLink>
+          <Description>Technical Details</Description>
+          <URL>
+          http://www.amazon.com/Service-Oriented-Design-Addison-Wesley-Professional-Series/dp/tech-data/0321659368%3FSubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Add To Baby Registry</Description>
+          <URL>
+          http://www.amazon.com/gp/registry/baby/add-item.html%3Fasin.0%3D0321659368%26SubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Add To Wedding Registry</Description>
+          <URL>
+          http://www.amazon.com/gp/registry/wedding/add-item.html%3Fasin.0%3D0321659368%26SubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Add To Wishlist</Description>
+          <URL>
+          http://www.amazon.com/gp/registry/wishlist/add-item.html%3Fasin.0%3D0321659368%26SubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>Tell A Friend</Description>
+          <URL>
+          http://www.amazon.com/gp/pdp/taf/0321659368%3FSubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Customer Reviews</Description>
+          <URL>
+          http://www.amazon.com/review/product/0321659368%3FSubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+        <ItemLink>
+          <Description>All Offers</Description>
+          <URL>
+          http://www.amazon.com/gp/offer-listing/0321659368%3FSubscriptionId%3D12VVZFFGCXXK8A0B40G2%26tag%3Dwwwjefferso02-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D386001%26creativeASIN%3D0321659368</URL>
+        </ItemLink>
+      </ItemLinks>
+      <SalesRank>339545</SalesRank>
+      <SmallImage>
+        <URL>
+        http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL75_.jpg</URL>
+        <Height Units="pixels">75</Height>
+        <Width Units="pixels">56</Width>
+      </SmallImage>
+      <MediumImage>
+        <URL>
+        http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL160_.jpg</URL>
+        <Height Units="pixels">160</Height>
+        <Width Units="pixels">120</Width>
+      </MediumImage>
+      <LargeImage>
+        <URL>
+        http://ecx.images-amazon.com/images/I/51VSl9L6DjL.jpg</URL>
+        <Height Units="pixels">500</Height>
+        <Width Units="pixels">376</Width>
+      </LargeImage>
+      <ImageSets>
+        <ImageSet Category="primary">
+          <SwatchImage>
+            <URL>
+            http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL30_.jpg</URL>
+            <Height Units="pixels">30</Height>
+            <Width Units="pixels">23</Width>
+          </SwatchImage>
+          <SmallImage>
+            <URL>
+            http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">56</Width>
+          </SmallImage>
+          <ThumbnailImage>
+            <URL>
+            http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL75_.jpg</URL>
+            <Height Units="pixels">75</Height>
+            <Width Units="pixels">56</Width>
+          </ThumbnailImage>
+          <TinyImage>
+            <URL>
+            http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL110_.jpg</URL>
+            <Height Units="pixels">110</Height>
+            <Width Units="pixels">83</Width>
+          </TinyImage>
+          <MediumImage>
+            <URL>
+            http://ecx.images-amazon.com/images/I/51VSl9L6DjL._SL160_.jpg</URL>
+            <Height Units="pixels">160</Height>
+            <Width Units="pixels">120</Width>
+          </MediumImage>
+          <LargeImage>
+            <URL>
+            http://ecx.images-amazon.com/images/I/51VSl9L6DjL.jpg</URL>
+            <Height Units="pixels">500</Height>
+            <Width Units="pixels">376</Width>
+          </LargeImage>
+        </ImageSet>
+      </ImageSets>
+      <ItemAttributes>
+        <Author>Paul Dix</Author>
+        <Binding>Paperback</Binding>
+        <EAN>9780321659361</EAN>
+        <EANList>
+          <EANListElement>9780321659361</EANListElement>
+        </EANList>
+        <Edition>1</Edition>
+        <ISBN>0321659368</ISBN>
+        <ItemDimensions>
+          <Height Units="hundredths-inches">909</Height>
+          <Length Units="hundredths-inches">713</Length>
+          <Weight Units="hundredths-pounds">112</Weight>
+          <Width Units="hundredths-inches">67</Width>
+        </ItemDimensions>
+        <Label>Addison-Wesley Professional</Label>
+        <Languages>
+          <Language>
+            <Name>English</Name>
+            <Type>Unknown</Type>
+          </Language>
+          <Language>
+            <Name>English</Name>
+            <Type>Original Language</Type>
+          </Language>
+          <Language>
+            <Name>English</Name>
+            <Type>Published</Type>
+          </Language>
+        </Languages>
+        <ListPrice>
+          <Amount>4999</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+          <FormattedPrice>$49.99</FormattedPrice>
+        </ListPrice>
+        <Manufacturer>Addison-Wesley Professional</Manufacturer>
+        <MPN>9780321659361</MPN>
+        <NumberOfItems>1</NumberOfItems>
+        <NumberOfPages>320</NumberOfPages>
+        <PackageDimensions>
+          <Height Units="hundredths-inches">79</Height>
+          <Length Units="hundredths-inches">906</Length>
+          <Weight Units="hundredths-pounds">123</Weight>
+          <Width Units="hundredths-inches">701</Width>
+        </PackageDimensions>
+        <PartNumber>9780321659361</PartNumber>
+        <ProductGroup>Book</ProductGroup>
+        <ProductTypeName>ABIS_BOOK</ProductTypeName>
+        <PublicationDate>2010-08-27</PublicationDate>
+        <Publisher>Addison-Wesley Professional</Publisher>
+        <SKU>ACOM-INT_book_usedverygood_0321659368</SKU>
+        <Studio>Addison-Wesley Professional</Studio>
+        <Title>Service-Oriented Design with Ruby and Rails
+        (Addison-Wesley Professional Ruby Series)</Title>
+      </ItemAttributes>
+      <OfferSummary>
+        <LowestNewPrice>
+          <Amount>3218</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+          <FormattedPrice>$32.18</FormattedPrice>
+        </LowestNewPrice>
+        <LowestUsedPrice>
+          <Amount>2280</Amount>
+          <CurrencyCode>USD</CurrencyCode>
+          <FormattedPrice>$22.80</FormattedPrice>
+        </LowestUsedPrice>
+        <TotalNew>34</TotalNew>
+        <TotalUsed>22</TotalUsed>
+        <TotalCollectible>0</TotalCollectible>
+        <TotalRefurbished>0</TotalRefurbished>
+      </OfferSummary>
+      <EditorialReviews>
+        <EditorialReview>
+          <Source>Product Description</Source>
+          <Content>&lt;b&gt; The Complete Guide to Building Highly
+          Scalable, Services-Based Rails Applications &lt;/b&gt;
+          &lt;p style="margin: 0px;"&gt; &lt;/p&gt; &lt;p
+          style="margin: 0px;"&gt;Ruby on Rails deployments are
+          growing, and Rails is increasingly being adopted in
+          larger environments. Today, Rails developers and
+          architects need better ways to interface with legacy
+          systems, move into the cloud, and scale to handle higher
+          volumes and greater complexity. In &lt;b&gt;
+          &lt;i&gt;Service-Oriented Design with Ruby and
+          Rails&lt;/i&gt; &lt;/b&gt; Paul Dix introduces a
+          powerful, services-based design approach geared toward
+          overcoming all these challenges. Using Dix’s
+          techniques, readers can leverage the full benefits of
+          both Ruby and Rails, while overcoming the difficulties of
+          working with larger codebases and teams. &lt;/p&gt; &lt;p
+          style="margin: 0px;"&gt; &lt;/p&gt; &lt;p style="margin:
+          0px;"&gt;Dix demonstrates how to integrate multiple
+          components within an enterprise application stack; create
+          services that can easily grow and connect; and design
+          systems that are easier to maintain and upgrade. Key
+          concepts are explained with detailed Ruby code built
+          using open source libraries such as ActiveRecord,
+          Sinatra, Nokogiri, and Typhoeus. The book concludes with
+          coverage of security, scaling, messaging, and interfacing
+          with third-party services. &lt;/p&gt; &lt;p
+          style="margin: 0px;"&gt; &lt;br&gt; &lt;/p&gt; &lt;p
+          style="margin: 0px;"&gt;Service-Oriented Design with Ruby
+          and Rails will help you&lt;/p&gt; &lt;ul&gt;
+          &lt;li&gt;Build highly scalable, Ruby-based service
+          architectures that operate smoothly in the cloud or with
+          legacy systems&lt;/li&gt; &lt;li&gt;Scale Rails systems
+          to handle more requests, larger development teams, and
+          more complex code bases&lt;/li&gt; &lt;li&gt;Master new
+          best practices for designing and creating services in
+          Ruby&lt;/li&gt; &lt;li&gt;Use Ruby to glue together
+          services written in any language&lt;/li&gt; &lt;li&gt;Use
+          Ruby libraries to build and consume RESTful Web
+          services&lt;/li&gt; &lt;li&gt;Use Ruby JSON parsers to
+          quickly represent resources from HTTP services&lt;/li&gt;
+          &lt;li&gt;Write lightweight, well-designed API wrappers
+          around internal or external services&lt;/li&gt;
+          &lt;li&gt;Discover powerful non-Rails frameworks that
+          simplify Ruby service implementation&lt;/li&gt;
+          &lt;li&gt;Implement standards-based enterprise messaging
+          with Advanced Message Queuing Protocol (AMQP) &lt;/li&gt;
+          &lt;li&gt;Optimize performance with load balancing and
+          caching &lt;/li&gt; &lt;li&gt;Provide for security and
+          authentication&lt;/li&gt; &lt;/ul&gt;</Content>
+          <IsLinkSuppressed>0</IsLinkSuppressed>
+        </EditorialReview>
+      </EditorialReviews>
+    </Item>
+  </Items>
+</ItemSearchResponse>

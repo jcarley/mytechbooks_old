@@ -29,46 +29,15 @@ html
                     a href="#" Link 2
                   li
                     a href="#" Link 3
+                ul.right
+                  = render "layouts/navigation"
         .row
           = render 'layouts/messages'
           .twelve.columns
-            .row
-
-              .two.columns
-                img src="http://placehold.it/1000x1000&text=Thumbnail"
-              .ten.columns
-                h5 Item Name
-                h6.subheader Freddy George (Dec 2011)
-                dl
-                  dd MSRP: $100.00
-                  dd Pages: 345
-              hr
-
-              .two.columns
-                img src="http://placehold.it/1000x1000&text=Thumbnail"
-              .ten.columns
-                h5 Item Name
-                h6.subheader Freddy George (Dec 2011)
-                dl
-                  dd MSRP: $100.00
-                  dd Published : December 2011
-                  dd Pages: 345
-
-              hr
-
-              .two.columns
-                img src="http://placehold.it/1000x1000&text=Thumbnail"
-              .ten.columns
-                h5 Item Name
-                h6.subheader Freddy George (Dec 2011)
-                dl
-                  dd MSRP: $100.00
-                  dd Published : December 2011
-                  dd Pages: 345
+            = yield
 
         footer class="row"
           .twelve.columns
             .row
               .six.columns
                 p &copy; Copyright 2012 - Finish First Software
-    /! ! end of #container
