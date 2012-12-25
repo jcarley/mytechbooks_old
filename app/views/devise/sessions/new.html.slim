@@ -1,0 +1,23 @@
+h3 Sign in
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .row
+    .two.columns
+      = f.label :email, :class => "right inline"
+    .ten.columns
+      = f.text_field :email, :class => "six", :required => false, :autofocus => true
+  .row
+    .two.columns
+      = f.label :password, :class => "right inline"
+    .ten.columns
+      = f.password_field :password, :required => false, :class => "six"
+  .row
+    .two.columns
+      = f.label :remember_me, :class => "right inline"
+    .ten.columns
+      = f.check_box :remember_me, :as => :boolean if devise_mapping.rememberable?
+
+  .row
+    .eight.columns
+      = f.submit "Sign in", :class => "button"
+
+= render "devise/shared/links"
