@@ -1,11 +1,11 @@
-source 'https://rubygems.org'
+source :rubygems
 
 gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem "puma", ">= 1.6.2"
 gem "mongoid", ">= 3.0.5"
-gem 'bson'
-gem 'bson_ext'
+gem 'bson', '~> 1.8.0'
+gem 'bson_ext', '~> 1.8.0'
 gem 'slim-rails', '~> 1.0.3'
 gem "slim", ">= 1.2.2"
 gem "devise", ">= 2.1.2"
@@ -14,11 +14,11 @@ gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.2"
 gem "draper", '~> 0.18.0'
 gem 'redis-store', '~> 1.1.3'
-gem 'httpclient'
-gem 'asin'
-gem 'sidekiq'
-gem 'sinatra'
-gem 'carrierwave'
+gem 'httpclient', '~> 2.3.0.1'
+gem 'asin', '~> 1.1.0'
+gem 'sidekiq', '~> 2.6.0'
+gem 'sinatra', '~>1.3.3'
+gem 'carrierwave', '~> 0.7.1'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 group :assets do
@@ -36,9 +36,9 @@ group :development do
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
   gem "foreman", '~> 0.60.2'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-spork'
+  gem 'guard', '~> 1.6.0'
+  gem 'guard-rspec', '~> 2.3.3'
+  gem 'guard-spork', '~> 1.4.0'
   gem 'rb-fsevent', '~> 0.9.1'
 end
 
@@ -51,8 +51,8 @@ group :test do
 end
 
 group :development, :test do
-  gem 'pry'
-  gem 'pry-rails'
+  gem 'pry', '0.9.10'
+  gem 'pry-rails', '~> 0.2.2'
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 4.0.0"
 end
