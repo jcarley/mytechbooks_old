@@ -17,4 +17,7 @@ class Book
   field :publisher, type: String
   field :published_on, type: Date
 
+  validates :title, presence: true
+  validates :isbn, presence: true
+
 end
