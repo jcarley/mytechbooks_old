@@ -1,5 +1,6 @@
 class Book
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :title, type: String
   field :ean, type: String
@@ -19,5 +20,7 @@ class Book
 
   validates :title, presence: true
   validates :isbn, presence: true
+
+  belongs_to :user
 
 end
