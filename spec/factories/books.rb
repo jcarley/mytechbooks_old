@@ -13,7 +13,7 @@ FactoryGirl.define do
     small_img_url     "http://www.example.com/images/small.jpg"
     medium_img_url    "http://www.example.com/images/medium.jpg"
     large_img_url     "http://www.example.com/images/large.jpg"
-    publisher         "Addison-Wesley                                                                                                                                                                                                                                    Professional"
+    publisher         "Addison-Wesley Professional"
     published_on      "2012-12-16"
   end
 end
