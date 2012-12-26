@@ -53,6 +53,7 @@ end
 group :development, :test do
   gem 'pry', '0.9.10'
   gem 'pry-rails', '~> 0.2.2'
+  gem 'awesome_print'
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 4.0.0"
 end
