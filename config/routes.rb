@@ -4,7 +4,7 @@ Mytechbooks::Application.routes.draw do
     root :to => 'home#index'
   end
 
-  root :to => "home#index"
+  root :to => redirect("/users/sign_in")
 
   devise_for :users
 
