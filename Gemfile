@@ -40,6 +40,7 @@ group :development do
   gem 'guard-rspec', '~> 2.3.3'
   gem 'guard-spork', '~> 1.4.0'
   gem 'rb-fsevent', '~> 0.9.1'
+  gem 'growl', '~> 1.0.3'
 end
 
 group :test do
