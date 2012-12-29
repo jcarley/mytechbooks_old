@@ -31,6 +31,7 @@ class Amazon
       items.each do |item|
         book = Book.new
         book.title = item.title
+        book.author = item.raw.ItemAttributes.Author
         book.ean = item.raw.ItemAttributes!.EAN
         book.isbn = item.raw.ItemAttributes!.ISBN
         book.pages = item.raw.ItemAttributes!.NumberOfPages.to_i

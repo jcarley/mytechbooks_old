@@ -3,6 +3,7 @@ class Book
   include Mongoid::Timestamps
 
   field :title, type: String
+  field :author, type: String
   field :ean, type: String
   field :isbn, type: String
   field :pages, type: Integer

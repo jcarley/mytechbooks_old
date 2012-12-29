@@ -12,7 +12,7 @@ class BookDecorator < Draper::Base
   # hr
   def result
     book_title = h.content_tag(:h5, book.title)
-    author = h.content_tag(:h6, "Eddy George (#{book.published_on})", {:class => "subheader"})
+    author = h.content_tag(:h6, "#{book.author} (#{book.published_on.strftime("%b %Y")})", {:class => "subheader"})
 
     book_price = h.content_tag(:dd, "MSRP: #{book.formatted_price}")
     book_page_count = h.content_tag(:dd, "Pages: #{book.pages}")
