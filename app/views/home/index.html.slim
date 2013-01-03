@@ -1,2 +1,14 @@
+.row.collapse
+  = form_for(:book, :url => books_create_path, :remote => true) do |f|
+    .one.columns
+      span class="prefix" ISBN:
+    .three.columns
+      = f.text_field :isbn
+    .two.columns.end
+      = f.submit "Add Book", :class => "button expand postfix"
+
+hr
+
 .row
-  = render @books
+  .books
+    = render @books

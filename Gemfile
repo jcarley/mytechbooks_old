@@ -13,6 +13,7 @@ gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.2"
 gem "draper", '~> 0.18.0'
+gem 'hashie', '~> 1.2.0'
 gem 'redis-store', '~> 1.1.3'
 gem 'httpclient', '~> 2.3.0.1'
 gem 'asin', '~> 1.1.0'
@@ -49,6 +50,8 @@ group :test do
   gem "mongoid-rspec", ">= 1.4.6"
   gem "cucumber-rails", ">= 1.3.0", :require => false
   gem "launchy", ">= 2.1.2"
+  gem 'vcr', '~> 2.3.0'
+  gem 'webmock'
 end
 
 group :development, :test do

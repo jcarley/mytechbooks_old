@@ -24,7 +24,7 @@ class BookDecorator < Draper::Base
 
     result_separator = h.content_tag(:hr)
 
-    first_column + second_column + result_separator
+    h.content_tag(:div, first_column + second_column + result_separator, {:class => "book-result"})
   end
 
 end

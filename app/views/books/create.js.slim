@@ -1,0 +1,5 @@
+- if !@result.nil? && @result.success?
+  | $("div.books").append("#{j render(@result.book)}");
+- else
+  | alert("#{@result.error}");
+
