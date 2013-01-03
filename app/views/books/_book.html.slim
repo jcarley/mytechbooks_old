@@ -1,1 +1,14 @@
-= book.result
+.row
+  .two.columns
+    = book.cover_image
+  .ten.columns
+    h5
+      = book.title
+    h6.subheader
+      = book.sub_title
+    dl
+      dd
+        | MSRP: #{book.formatted_price}
+      dd
+        | Pages: #{book.pages}
+  hr
