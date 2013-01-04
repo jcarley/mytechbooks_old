@@ -18,6 +18,8 @@ end
 module Mytechbooks
   class Application < Rails::Application
 
+    config.mongoid.preload_models = false
+
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       g.view_specs false

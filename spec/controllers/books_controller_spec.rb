@@ -10,57 +10,73 @@ describe BooksController, :vcr do
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show'
+      get :show, :id => @user.books.first
       response.should be_success
     end
   end
 
-  context "POST 'create' success" do
+  describe "POST 'create'" do
 
-    let(:params) do
-      {:isbn => '0321659368'}
+    context "success" do
+
+      let(:params) do
+        {:isbn => '0321659368'}
+      end
+
+      it "should create a book" do
+        expect { post :create, :book => params }.to change{Book.all.count}.by(1)
+      end
+
+      it "should assign result" do
+        post :create, :book => params
+        assigns(:result).should be_true
+      end
+
+      it "should have a successful result" do
+        post :create, :book => params
+        assigns(:result)["success"].should be_true
+      end
     end
 
-    it "should create a book" do
-      expect { post :create, :book => params }.to change{Book.all.count}.by(1)
+    context "failure" do
+
+      let(:params) do
+        {:isbn => '0321119368'}
+      end
+
+      it "should not create a book" do
+        expect { post :create, :book => params }.to_not change{Book.all.count}.by(1)
+      end
+
+      it "should assign result" do
+        post :create, :book => params
+        assigns(:result).should be_true
+      end
+
+      it "should not have a successful result" do
+        post :create, :book => params
+        assigns(:result)["success"].should be_false
+      end
+
+      it "should have a error message" do
+        post :create, :book => params
+        assigns(:result)["error"].should_not be_empty
+      end
+
     end
 
-    it "should assign result" do
-      post :create, :book => params
-      assigns(:result).should be_true
-    end
-
-    it "should have a successful result" do
-      post :create, :book => params
-      assigns(:result)["success"].should be_true
-    end
   end
 
-  context "POST 'create' failure" do
+  describe "POST 'delete'" do
 
-    let(:params) do
-      {:isbn => '0321119368'}
+    it "should remove a book" do
+      expect { post :destroy, :id => @user.books.first.id }.to change{Book.all.count}.by(-1)
     end
 
-    it "should not create a book" do
-      expect { post :create, :book => params }.to_not change{Book.all.count}.by(1)
+    it "should assign book id" do
+      post :destroy, :id => @user.books.first.id
+      assigns(:id).should be_true
     end
-
-    it "should assign result" do
-      post :create, :book => params
-      assigns(:result).should be_true
-    end
-
-    it "should not have a successful result" do
-      post :create, :book => params
-      assigns(:result)["success"].should be_false
-    end
-
-    it "should have a error message" do
-      post :create, :book => params
-      assigns(:result)["error"].should_not be_empty
-    end
-
   end
 
 end

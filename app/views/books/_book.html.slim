@@ -1,14 +1,23 @@
-.row
+.row id="#{book.id}"
   .two.columns
     = book.cover_image
   .ten.columns
-    h5
-      = book.title
-    h6.subheader
-      = book.sub_title
-    dl
-      dd
-        | MSRP: #{book.formatted_price}
-      dd
-        | Pages: #{book.pages}
-  hr
+    .row
+      .eight.columns
+        h5
+          = link_to book.title, book_path(book)
+        h6.subheader
+          = book.sub_title
+        dl
+          dd
+            | MSRP: #{book.formatted_price}
+          dd
+            | Pages: #{book.pages}
+      .two.columns
+        span style="margin-right:5px"
+          = link_to "Edit", edit_book_path(book), :class => "tiny button"
+        span
+          = link_to "Delete", book_path(book), :class => "tiny alert button", :method => :delete, :confirm => "Delete '#{book.title}'", :remote => true
+  .row
+    .twelve.columns
+      hr

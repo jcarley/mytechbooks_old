@@ -1,5 +1,5 @@
 .row.collapse
-  = form_for(:book, :url => books_create_path, :remote => true) do |f|
+  = form_for(Book.new, :url => books_path, :remote => true) do |f|
     .one.columns
       span class="prefix" ISBN:
     .three.columns

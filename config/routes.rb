@@ -9,8 +9,9 @@ Mytechbooks::Application.routes.draw do
   devise_for :users
 
   resources :users
+  resources :books
 
-  get "books/show"
+  # get "books/show"
 
-  post "books/create"
+  # post "books/create"
 end
