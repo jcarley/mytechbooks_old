@@ -1,14 +1,18 @@
 coffee:
-  signin = ->
-    $('#user_email').val('jcarley@example.com')
+  signin = (username)->
+    $('#user_email').val("#{username}@example.com")
     $('#user_password').val('password')
     $('#sign_in_button').click()
 
   $(document).ready ->
-    $('#sign_in_link').click ->
-      signin()
-
-a href="#" id="sign_in_link" Sign In
+    $("a[name='sign_in_link']").click ->
+      username = $(this).attr("data-username")
+      signin(username)
+.row
+  .two.columns
+    a href="#" name="sign_in_link" id="sign_in_jefferson" data-username="jcarley" Sign In Jefferson
+  .two.columns.end
+    a href="#" name="sign_in_link" id="sign_in_jaden" data-username="jaden" Sign In Jaden
 
 h3 Sign in
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
