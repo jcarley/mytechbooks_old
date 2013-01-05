@@ -22,13 +22,13 @@ html
                 li.toggle-topbar
                   a href="#"
               section
-                ul.left
-                  li
-                    a href="#" Link 1
-                  li
-                    a href="#" Link 2
-                  li
-                    a href="#" Link 3
+                / ul.left
+                  / li
+                    / a href="#" Link 1
+                  / li
+                    / a href="#" Link 2
+                  / li
+                    / a href="#" Link 3
                 ul.right
                   = render "layouts/navigation"
         .row
@@ -36,7 +36,7 @@ html
           .twelve.columns
             = yield
 
-        footer class="row"
+        footer class="row" style="margin-top:25px"
           .twelve.columns
             .row
               .six.columns

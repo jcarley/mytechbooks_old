@@ -1,4 +1,26 @@
 FactoryGirl.define do
+
+  factory :user do
+    name 'John Doe'
+    sequence(:email) {|n| "john.doe-#{n}@example.com" }
+    password 'password'
+    password_confirmation 'password'
+    # required if the Devise Confirmable module is used
+    # confirmed_at Time.now
+
+    factory :user_with_books do
+
+      ignore do
+        book_count 1
+      end
+
+      after(:create) do |user, evaluator|
+        FactoryGirl.create_list(:book, evaluator.book_count, user: user)
+      end
+
+    end
+  end
+
   factory :book do
     title             "Service-Oriented Design with Ruby and Rails"
     ean               "9780321659361"
@@ -15,5 +37,10 @@ FactoryGirl.define do
     large_img_url     "http://www.example.com/images/large.jpg"
     publisher         "Addison-Wesley Professional"
     published_on      "2012-12-16"
+
+    factory :book_with_user do
+      user
+    end
   end
+
 end

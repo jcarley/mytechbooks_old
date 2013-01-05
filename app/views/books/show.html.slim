@@ -1,2 +1,31 @@
-h1 Books#show
-p Find me in app/views/books/show.html.slim
+.row
+  .two.columns
+    = @book.cover_image
+  .ten.columns
+    .row
+      .eight.columns
+        h5
+          = @book.title
+        h6
+          = @book.publisher
+        h6.subheader
+          = @book.sub_title
+        dl
+          dd
+            | MSRP: #{@book.formatted_price}
+.row
+  .twelve.columns
+    hr
+.row
+  .twelve.columns
+    h5 Book Details
+    ul.none
+      li
+        b = "#{@book.binding}:"
+        = " #{@book.pages} pages"
+      li
+        b Publisher:
+        = " #{@book.publisher}"
+      li
+        b ISBN:
+        = " #{@book.isbn}"

@@ -6,7 +6,11 @@ class BookDecorator < Draper::Base
   end
 
   def sub_title
-    "#{book.author} (#{book.published_on.strftime("%b %Y")})"
+    "#{book.author} (#{published_formatted_date})"
+  end
+
+  def published_formatted_date
+    "#{book.published_on.strftime("%b %Y")}"
   end
 
 end
