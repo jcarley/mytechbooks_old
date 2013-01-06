@@ -22,13 +22,14 @@ html
                 li.toggle-topbar
                   a href="#"
               section
-                / ul.left
-                  / li
-                    / a href="#" Link 1
-                  / li
-                    / a href="#" Link 2
-                  / li
-                    / a href="#" Link 3
+                - if user_signed_in?
+                  ul.left
+                    li
+                      = link_to "Add a Book", new_book_path
+                    / li
+                      / a href="#" Link 2
+                    / li
+                      / a href="#" Link 3
                 ul.right
                   = render "layouts/navigation"
         .row

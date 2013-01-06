@@ -21,6 +21,7 @@ gem 'sidekiq', '~> 2.6.0'
 gem 'sinatra', '~>1.3.3'
 gem 'carrierwave', '~> 0.7.1'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'kaminari', '~> 0.14.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

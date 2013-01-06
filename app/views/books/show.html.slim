@@ -1,31 +1,49 @@
 .row
+  .twelve.columns
+    ul.button-group
+      li = link_to "Edit", edit_book_path(@book), :class => "small button"
+      li = link_to "Delete", book_path(@book), :class => "small button", :method => :delete, :confirm => "Delete '#{@book.title}'", :remote => true
+    hr
+.row
   .two.columns
     = @book.cover_image
   .ten.columns
-    .row
-      .eight.columns
-        h5
-          = @book.title
-        h6
-          = @book.publisher
-        h6.subheader
-          = @book.sub_title
-        dl
-          dd
-            | MSRP: #{@book.formatted_price}
+    h5
+      = @book.title
+    h6
+      = @book.publisher
+    h6.subheader
+      = @book.sub_title
 .row
   .twelve.columns
     hr
 .row
   .twelve.columns
-    h5 Book Details
-    ul.none
-      li
-        b = "#{@book.binding}:"
-        = " #{@book.pages} pages"
-      li
-        b Publisher:
-        = " #{@book.publisher}"
-      li
-        b ISBN:
-        = " #{@book.isbn}"
+
+    dl.tabs
+      dd.active = link_to "Details", "#details"
+      dd = link_to "Description", "#description"
+
+    ul.tabs-content
+      li.active id="detailsTab"
+        ul.none
+          li
+            b = "#{@book.binding}:"
+            = " #{@book.pages} pages"
+          li
+            b Publisher:
+            = " #{@book.publisher}"
+          li
+            b ISBN:
+            = " #{@book.isbn}"
+          li
+            b Edition:
+            = " #{@book.edition}"
+          li
+            b MSRP:
+            = " #{@book.formatted_price}"
+          li
+            b = link_to "Further Details",  @book.details_url
+      li id="descriptionTab"
+          = @book.long_description
+

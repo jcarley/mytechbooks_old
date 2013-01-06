@@ -13,6 +13,7 @@ class Book
   field :asin, type: String
   field :amount, type: String
   field :details_url, type: String
+  field :description, type: String
   field :small_img_url, type: String
   field :medium_img_url, type: String
   field :large_img_url, type: String

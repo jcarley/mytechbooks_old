@@ -14,9 +14,6 @@
           dd
             | Pages: #{book.pages}
       .two.columns
-        - if can? :update, book
-          span style="margin-right:5px"
-            = link_to "Edit", edit_book_path(book), :class => "tiny button"
         - if can? :destroy, book
           span
             = link_to "Delete", book_path(book), :class => "tiny alert button", :method => :delete, :confirm => "Delete '#{book.title}'", :remote => true

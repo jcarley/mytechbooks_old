@@ -9,6 +9,10 @@ class BooksController < ApplicationController
     @book = BookDecorator.find(params[:id])
   end
 
+  def new
+
+  end
+
   def create
     execute_command(:register_book, current_user.id, params[:book][:isbn]) do |result|
       @result = Hashie::Mash.new(result)

@@ -12,6 +12,7 @@ class BookDomainMapper
     book.asin = item.asin
     book.amount = item.amount
     book.details_url = item.details_url
+    book.description = item.raw.EditorialReviews!.EditorialReview!.Content
     book.small_img_url = item.raw.SmallImage!.URL
     book.medium_img_url = item.raw.MediumImage!.URL
     book.large_img_url = item.image_url
@@ -20,3 +21,8 @@ class BookDomainMapper
     book
   end
 end
+
+# <EditorialReviews>
+  # <EditorialReview>
+    # <Source>Product Description</Source>
+    # <Content>&lt;b&gt; The Complete Guide to Building Highly
