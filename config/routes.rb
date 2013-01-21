@@ -10,8 +10,6 @@ Mytechbooks::Application.routes.draw do
 
   resources :users
   resources :books
+  get "/search", :to => "search#index", :as => :search
 
-  # get "books/show"
-
-  # post "books/create"
 end

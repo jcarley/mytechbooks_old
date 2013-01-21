@@ -25,6 +25,7 @@ FactoryGirl.define do
     title             "Service-Oriented Design with Ruby and Rails"
     ean               "9780321659361"
     isbn              "0321659368"
+    author            "Paul Dix"
     pages             250
     binding           "Paperback"
     edition           2

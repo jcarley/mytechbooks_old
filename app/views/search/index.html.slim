@@ -1,0 +1,11 @@
+.row.collapse
+  = form_for(:search, :url => search_path, :method => :get) do |f|
+    .ten.columns
+      = f.text_field :criteria, :id => :criteria, :name => :criteria, :value => params[:criteria]
+    .two.columns
+      = f.submit "Search", :class => "button expand postfix"
+hr
+
+.row
+  #search_results.twelve.columns
+    = render @books

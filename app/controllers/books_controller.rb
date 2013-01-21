@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     @id = params[:id]
     book = Book.where(:id => @id)
     unless book.nil?
-      book.delete
+      book.destroy
     end
     respond_with :js
   end

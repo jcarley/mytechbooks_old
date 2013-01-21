@@ -1,0 +1,12 @@
+1) Bulk import of isbn numbers
+2) Upload and attach PDF eBook versions
+3) Categories to classify books with
+4) Publish libraries to friends (social networking)
+5) Personal reviews of books
+6) Star ratings
+7) Selling of hard copies
+8) Lending
+9) Fulltext searching of eBook contents
+10) Integrate search on home page
+11) Purchase via Amazon (MVF)
+

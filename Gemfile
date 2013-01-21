@@ -7,7 +7,7 @@ gem "mongoid", ">= 3.0.5"
 gem 'bson', '~> 1.8.0'
 gem 'bson_ext', '~> 1.8.0'
 gem 'slim-rails', '~> 1.0.3'
-gem "slim", ">= 1.2.2"
+# gem "slim", ">= 1.2.2"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
@@ -22,6 +22,8 @@ gem 'sinatra', '~>1.3.3'
 gem 'carrierwave', '~> 0.7.1'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'kaminari', '~> 0.14.1'
+gem 'yajl-ruby', '~> 1.1.0'
+gem 'tire', '~> 0.5.4'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -32,9 +34,6 @@ group :assets do
 end
 
 group :development do
-  gem "haml2slim", ">= 0.4.6"
-  gem "haml", ">= 3.1.6"
-  gem "haml-rails", ">= 0.3.4"
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
   gem "foreman", '~> 0.60.2'
@@ -43,6 +42,7 @@ group :development do
   gem 'guard-spork', '~> 1.4.0'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'growl', '~> 1.0.3'
+  gem 'desi'
 end
 
 group :test do
@@ -57,7 +57,9 @@ end
 
 group :development, :test do
   gem 'pry', '0.9.10'
+  gem 'pry-doc'
   gem 'pry-rails', '~> 0.2.2'
+  gem 'pry-debugger'
   gem 'awesome_print'
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 4.0.0"
