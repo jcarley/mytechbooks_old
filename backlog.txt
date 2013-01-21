@@ -9,4 +9,5 @@
 9) Fulltext searching of eBook contents
 10) Integrate search on home page
 11) Purchase via Amazon (MVF)
-
+12) Fix styling for edit account page
+13) Change confirm dialogs to html model dialogs
