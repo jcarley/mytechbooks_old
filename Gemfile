@@ -7,7 +7,6 @@ gem "mongoid", ">= 3.0.5"
 gem 'bson', '~> 1.8.0'
 gem 'bson_ext', '~> 1.8.0'
 gem 'slim-rails', '~> 1.0.3'
-# gem "slim", ">= 1.2.2"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
@@ -37,15 +36,16 @@ group :development do
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
   gem "foreman", '~> 0.60.2'
-  gem 'guard', '~> 1.6.0'
-  gem 'guard-rspec', '~> 2.3.3'
-  gem 'guard-spork', '~> 1.4.0'
+  gem 'guard-cucumber'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'growl', '~> 1.0.3'
   gem 'desi'
 end
 
 group :test do
+  gem 'guard', '~> 1.6.0'
+  gem 'guard-spork', '~> 1.4.0'
+  gem 'guard-rspec', '~> 2.3.3'
   gem "capybara", ">= 1.1.2"
   gem "database_cleaner", ">= 0.8.0"
   gem "mongoid-rspec", ">= 1.4.6"
@@ -53,6 +53,7 @@ group :test do
   gem "launchy", ">= 2.1.2"
   gem 'vcr', '~> 2.3.0'
   gem 'webmock'
+  gem "factory_girl_rails", ">= 4.0.0"
 end
 
 group :development, :test do
@@ -62,6 +63,5 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'awesome_print'
   gem "rspec-rails", ">= 2.11.0"
-  gem "factory_girl_rails", ">= 4.0.0"
 end
 

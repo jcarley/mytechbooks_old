@@ -21,8 +21,3 @@ class BookDomainMapper
     book
   end
 end
-
-# <EditorialReviews>
-  # <EditorialReview>
-    # <Source>Product Description</Source>
-    # <Content>&lt;b&gt; The Complete Guide to Building Highly

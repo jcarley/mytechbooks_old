@@ -13,8 +13,8 @@ module Tasks
 
     def perform(filename)
       input = File.readlines(filename)
+      api = Amazon.new
       input.each do |line|
-        api = Amazon.new
         api.search(line) do |book|
           process(book)
         end

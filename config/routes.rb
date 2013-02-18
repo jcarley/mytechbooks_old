@@ -4,9 +4,11 @@ Mytechbooks::Application.routes.draw do
     root :to => 'home#index'
   end
 
-  root :to => redirect("/users/sign_in")
-
   devise_for :users
+
+  devise_scope :user do
+    match '/' => 'devise/sessions#new'
+  end
 
   resources :users
   resources :books
