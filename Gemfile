@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'rails', '3.2.9'
+gem 'rails', '~> 3.2.12'
 gem 'jquery-rails'
 gem "puma", ">= 1.6.2"
 gem "mongoid", ">= 3.0.5"
