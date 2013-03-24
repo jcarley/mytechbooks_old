@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe User, :focus => true do
 
   before(:each) do
     @attr = {
@@ -9,6 +9,24 @@ describe User do
       :password => "foobar",
       :password_confirmation => "foobar"
     }
+  end
+
+  subject { FactoryGirl.create(:user) }
+
+  it { should respond_to(:register_book) }
+
+  describe "#register_book" do
+
+    let(:valid_book) do
+      FactoryGirl.build(:book)
+    end
+
+    it "should create a new book" do
+      expect do
+        subject.register_book(valid_book)
+        subject.save
+      end.to change{Book.all.count}.by(1)
+    end
   end
 
   it "should create a new instance given a valid attribute" do

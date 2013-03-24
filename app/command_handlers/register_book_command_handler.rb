@@ -40,7 +40,7 @@ class RegisterBookCommandHandler
       unless books.empty?
         user = find_user
         books.each do |book|
-          user.books << book
+          user.register_book(book)
         end
         user.save
       end

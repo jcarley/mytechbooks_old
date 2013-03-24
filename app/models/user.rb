@@ -38,6 +38,10 @@ class User
 
   has_many :books
 
+  def register_book(book)
+    self.books << book unless book.nil?
+  end
+
   ## Confirmable
   # field :confirmation_token,   :type => String
   # field :confirmed_at,         :type => Time
