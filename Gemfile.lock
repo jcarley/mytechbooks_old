@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.12)
       actionpack (= 3.2.12)
@@ -392,4 +392,4 @@ DEPENDENCIES
   vcr (~> 2.3.0)
   webmock
   yajl-ruby (~> 1.1.0)
-  zurb-foundation (>= 3.0.9)
+  zurb-foundation (~> 3.2.3)
