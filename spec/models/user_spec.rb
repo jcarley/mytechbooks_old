@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User, :focus => true do
+describe User do
 
   before(:each) do
     @attr = {

@@ -33,7 +33,6 @@ Spork.prefork do
     config.order = "random"
 
     config.treat_symbols_as_metadata_keys_with_true_values = true
-    config.filter_run :focus => true
 
     require 'database_cleaner'
     config.before(:suite) do
