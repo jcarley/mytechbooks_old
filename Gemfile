@@ -63,5 +63,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'awesome_print'
   gem "rspec-rails", ">= 2.11.0"
+  gem 'zeus'
+  gem 'guard-zeus'
 end
 
