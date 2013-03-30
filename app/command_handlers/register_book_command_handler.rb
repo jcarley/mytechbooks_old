@@ -1,6 +1,6 @@
 class RegisterBookCommandHandler
 
-  attr_reader :user_id, :isbn
+  attr_reader :user_id, :isbn, :error_message
   attr_accessor :books
 
   def execute(user_id, isbn)
@@ -10,16 +10,15 @@ class RegisterBookCommandHandler
 
     do_work
 
-    if block_given?
-      result = {success: success?, book: books}
-      unless success?
-        result[:error] = 'Error: Unable to register book'
-      end
-      yield result
-    else
-      return success?
+    unless success?
+      @error_message = 'Error: Unable to register book'
     end
 
+    self
+  end
+
+  def success?
+    books.empty? ? false : true
   end
 
   private
@@ -48,10 +47,6 @@ class RegisterBookCommandHandler
 
     def find_user
       User.find(user_id)
-    end
-
-    def success?
-      books.empty? ? false : true
     end
 
 end

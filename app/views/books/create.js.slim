@@ -1,6 +1,6 @@
-- if !@result.nil? && @result.success?
-  | $("#books").prepend("#{j render(@result.book)}");
+- if !@command.nil? && @command.success?
+  | $("#books").prepend("#{j render(@command.book)}");
   | $("#book_isbn").val("").focus();
 - else
-  | alert("#{@result.error}");
+  | alert("#{@command.error_message}");
 

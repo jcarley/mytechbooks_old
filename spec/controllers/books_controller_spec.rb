@@ -17,50 +17,50 @@ describe BooksController, :vcr do
 
   describe "POST 'create'" do
 
-    context "success" do
+    context "with a valid isbn" do
 
       let(:params) do
         {:isbn => '0321659368'}
       end
 
       it "should create a book" do
-        expect { post :create, :book => params }.to change{Book.all.count}.by(1)
+        expect { post :create, :book => params }.to change(Book, :count).by(1)
       end
 
-      it "should assign result" do
+      it "should assign command" do
         post :create, :book => params
-        assigns(:result).should be_true
+        expect(assigns(:command)).to be_instance_of RegisterBookCommandHandler
       end
 
       it "should have a successful result" do
         post :create, :book => params
-        assigns(:result)["success"].should be_true
+        expect(assigns(:command).success?).to be_true
       end
     end
 
-    context "failure" do
+    context "with an invalid isbn" do
 
       let(:params) do
         {:isbn => '0321119368'}
       end
 
       it "should not create a book" do
-        expect { post :create, :book => params }.to_not change{Book.all.count}.by(1)
+        expect { post :create, :book => params }.to_not change(Book, :count).by(1)
       end
 
-      it "should assign result" do
+      it "should assign command" do
         post :create, :book => params
-        assigns(:result).should be_true
+        expect(assigns(:command)).to be_instance_of RegisterBookCommandHandler
       end
 
       it "should not have a successful result" do
         post :create, :book => params
-        assigns(:result)["success"].should be_false
+        expect(assigns(:command).success?).to be_false
       end
 
       it "should have a error message" do
         post :create, :book => params
-        assigns(:result)["error"].should_not be_empty
+        expect(assigns(:command).error_message).to_not be_nil
       end
 
     end
@@ -70,12 +70,12 @@ describe BooksController, :vcr do
   describe "POST 'delete'" do
 
     it "should remove a book" do
-      expect { post :destroy, :id => @user.books.first.id }.to change{Book.all.count}.by(-1)
+      expect { post :destroy, :id => @user.books.first.id }.to change(Book, :count).by(-1)
     end
 
     it "should assign book id" do
       post :destroy, :id => @user.books.first.id
-      assigns(:id).should be_true
+      expect(assigns(:id)).to_not be_nil
     end
   end
 
@@ -87,37 +87,37 @@ describe BooksController, :vcr do
 
     it "should be successful" do
       post :show, :id => book
-      response.should be_success
+      expect(response).to be_success
     end
 
     it "should assign book" do
       post :show, :id => book
-      assigns(:book).should be_true
+      expect(assigns(:book)).to_not be_nil
     end
 
     it "should display the book title" do
       post :show, :id => book
-      response.body.should have_content(book.title)
+      expect(response.body).to have_content(book.title)
     end
 
     it "should display the book sub title" do
       post :show, :id => book
-      response.body.should have_content(book.sub_title)
+      expect(response.body).to have_content(book.sub_title)
     end
 
     it "should display the book cover image" do
       post :show, :id => book
-      response.body.should have_xpath("//img[@src='#{book.medium_img_url}']")
+      expect(response.body).to have_xpath("//img[@src='#{book.medium_img_url}']")
     end
 
     it "should display the book MSRP" do
       post :show, :id => book
-      response.body.should have_content(book.formatted_price)
+      expect(response.body).to have_content(book.formatted_price)
     end
 
     it "should display the book number of pages" do
       post :show, :id => book
-      response.body.should have_content("#{book.binding}: #{book.pages}")
+      expect(response.body).to have_content("#{book.binding}: #{book.pages}")
     end
   end
 
