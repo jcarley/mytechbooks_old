@@ -13,10 +13,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    @command = execute_command(:register_book, current_user.id, params[:book][:isbn])
-      # @result = Hashie::Mash.new(result)
-      # @result.book = BookDecorator.decorate(result[:book].first) if result[:success]
-    # end
+    command = execute_command(:register_book, current_user.id, params[:book][:isbn])
+
+    @result = Hashie::Mash.new
+    @result.book = BookDecorator.decorate(command.books.first) if command.success?
+    @result.error_message = command.error_message unless command.success?
+    @result.success = command.success?
+
     respond_with :js
   end
 

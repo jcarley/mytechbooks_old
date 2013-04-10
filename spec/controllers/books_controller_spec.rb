@@ -27,14 +27,9 @@ describe BooksController, :vcr do
         expect { post :create, :book => params }.to change(Book, :count).by(1)
       end
 
-      it "should assign command" do
-        post :create, :book => params
-        expect(assigns(:command)).to be_instance_of RegisterBookCommandHandler
-      end
-
       it "should have a successful result" do
         post :create, :book => params
-        expect(assigns(:command).success?).to be_true
+        expect(assigns(:result)[:success]).to be_true
       end
     end
 
@@ -48,19 +43,14 @@ describe BooksController, :vcr do
         expect { post :create, :book => params }.to_not change(Book, :count).by(1)
       end
 
-      it "should assign command" do
-        post :create, :book => params
-        expect(assigns(:command)).to be_instance_of RegisterBookCommandHandler
-      end
-
       it "should not have a successful result" do
         post :create, :book => params
-        expect(assigns(:command).success?).to be_false
+        expect(assigns(:result)[:success]).to be_false
       end
 
       it "should have a error message" do
         post :create, :book => params
-        expect(assigns(:command).error_message).to_not be_nil
+        expect(assigns(:result)[:error_message]).to_not be_nil
       end
 
     end
