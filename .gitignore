@@ -12,6 +12,7 @@
 
 tags
 /spec/vcr/
+/features/vcr/
 
 # bundler state
 /.bundle
