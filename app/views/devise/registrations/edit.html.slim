@@ -17,7 +17,7 @@ h2
       = f.label :password, :class => "right inline"
     .ten.columns
       = f.password_field :password, :class => "six", :autocomplete => "off"
-      i (leave blank if you don't want to change it)
+      i '(leave blank if you don't want to change it)'
   .row
     .two.columns
       = f.label :password_confirmation, :class => "right inline"
@@ -28,7 +28,7 @@ h2
       = f.label :current_password, :class => "right inline"
     .ten.columns
       = f.password_field :current_password, :class => "six"
-      i (we need your current password to confirm your changes)
+      i '(we need your current password to confirm your changes)'
   .row
     .eight.columns
       = f.submit "Update", :class => "button"
