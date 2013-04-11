@@ -11,7 +11,7 @@ guard 'rspec', :cli => "--color --format nested --fail-fast --drb", :zeus => tru
   watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
 end
 
-guard 'cucumber', :command_prefix => 'zeus', :bundler => false, :cli => '--drb --no-profile --color --format pretty --strict' do
+guard 'cucumber', :command_prefix => 'zeus', :bundler => false, :cli => '--drb --profile default --color --format pretty --strict' do
 # guard 'cucumber', :cli => '--drb --no-profile --color --format pretty --strict' do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { 'features' }

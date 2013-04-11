@@ -1,5 +1,6 @@
 - if @result.present? && @result.success?
   | $("#books").prepend("#{j render(@result.book)}");
+  | $("#messages").html("<span>You have successfully registered this book.</span>");
   | $("#book_isbn").val("").focus();
 - else
   | alert("#{@result.error_message}");

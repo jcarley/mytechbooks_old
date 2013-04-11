@@ -32,38 +32,40 @@ group :assets do
   gem "zurb-foundation", "~> 3.2.3"
 end
 
-group :development do
-  gem "hpricot", ">= 0.8.6"
-  gem "ruby_parser", ">= 2.3.1"
-  gem "foreman", '~> 0.60.2'
-  gem 'guard-cucumber'
-  gem 'rb-fsevent', '~> 0.9.1'
-  gem 'growl', '~> 1.0.3'
-  gem 'desi'
-end
-
-group :test do
-  gem 'guard', '~> 1.6.0'
-  gem 'guard-rspec', '~> 2.3.3'
-  gem "capybara", ">= 1.1.2"
-  gem "database_cleaner", ">= 0.8.0"
-  gem "mongoid-rspec", ">= 1.4.6"
-  gem "cucumber-rails", ">= 1.3.0", :require => false
-  gem "launchy", ">= 2.1.2"
-  gem 'vcr', '~> 2.3.0'
-  gem 'webmock'
-  gem 'shoulda-matchers'
-  gem "factory_girl_rails", ">= 4.0.0"
-end
-
 group :development, :test do
+  gem "foreman", '~> 0.60.2'
   gem 'pry', '0.9.10'
   gem 'pry-doc'
   gem 'pry-rails', '~> 0.2.2'
   gem 'pry-debugger'
+end
+
+group :test do
+  gem 'growl', '~> 1.0.3'
   gem 'awesome_print'
   gem "rspec-rails", ">= 2.11.0"
+  gem "cucumber-rails", ">= 1.3.0", :require => false
   gem 'zeus'
   gem 'guard-zeus'
+  gem 'guard-cucumber'
+  gem 'guard-rspec', '~> 2.3.3'
+  gem "capybara", ">= 2.0"
+  gem "database_cleaner", ">= 0.8.0"
+  gem "mongoid-rspec", ">= 1.4.6"
+  gem "rspec-rails", ">= 2.11.0"
+  gem 'poltergeist', '>= 1.1.0'
+  # gem "selenium-webdriver"
+  gem "launchy", ">= 2.1.2"
+  gem 'vcr', '~> 2.3.0'
+  gem 'webmock', :require => false
+  gem 'shoulda-matchers'
+  gem "factory_girl_rails", ">= 4.0.0"
+  gem 'rb-fsevent', '~> 0.9.1'
+end
+
+group :development do
+  gem "hpricot", ">= 0.8.6"
+  gem "ruby_parser", ">= 2.3.1"
+  gem 'desi'
 end
 
