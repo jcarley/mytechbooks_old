@@ -6,7 +6,7 @@ gem "puma", ">= 1.6.2"
 gem "mongoid", ">= 3.0.5"
 gem 'bson', '~> 1.8.0'
 gem 'bson_ext', '~> 1.8.0'
-gem 'slim-rails', '~> 1.0.3'
+gem 'slim-rails', '~> 1.1.1'
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
