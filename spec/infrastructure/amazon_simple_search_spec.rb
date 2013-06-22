@@ -11,7 +11,7 @@ describe AmazonSimpleSearch, :vcr do
   end
 
   let(:invalid_criteria) do
-    '0987654321'
+    '0987654381'
   end
 
   context :search do
@@ -30,8 +30,13 @@ describe AmazonSimpleSearch, :vcr do
       items.should be_empty
     end
 
-    specify { expect { |b| api.search(valid_criteria, &b) }.to yield_control }
-    specify { expect { |b| api.search(invalid_criteria, &b) }.not_to yield_control }
+    it "should not yield control" do
+      expect { |b| api.search(invalid_criteria, &b) }.not_to yield_control
+    end
+
+    it "should yield control" do
+      expect { |b| api.search(valid_criteria, &b) }.to yield_control
+    end
 
   end
 
