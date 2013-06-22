@@ -13,7 +13,7 @@ describe RegisterBookCommandHandler, :vcr do
   end
 
   let(:invalid_isbn) do
-    "9781430219999"
+    "9781480219999"
   end
 
   describe "public methods" do
