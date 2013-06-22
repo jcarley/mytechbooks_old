@@ -1,6 +1,7 @@
 ASIN::Configuration.configure do |config|
-  config.secret        = 'n+iIEHLuhkGGTijsME5ac6dXDyrMt59QXqk9k3YD'
-  config.key           = '12VVZFFGCXXK8A0B40G2'
-  config.associate_tag = 'wwwjefferso02-20'
-  config.logger        = Rails.env.test? ? nil : Rails.logger
+  config.secret        = Figaro.env.aws_secret
+  config.key           = Figaro.env.aws_key
+  config.associate_tag = Figaro.env.aws_associate_tag
+  # config.logger        = Rails.env.test? ? nil : Rails.logger
+  config.logger        = Rails.logger
 end

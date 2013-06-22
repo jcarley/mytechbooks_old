@@ -15,7 +15,7 @@ gem "draper", '~> 0.18.0'
 gem 'hashie', '~> 1.2.0'
 gem 'redis-store', '~> 1.1.3'
 gem 'httpclient', '~> 2.3.0.1'
-gem 'asin', '~> 1.1.0'
+gem "asin", "~> 1.1.2"
 gem 'sidekiq', '~> 2.6.0'
 gem 'sinatra', '~>1.3.3'
 gem 'carrierwave', '~> 0.7.1'
@@ -23,6 +23,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'kaminari', '~> 0.14.1'
 gem 'yajl-ruby', '~> 1.1.0'
 gem 'tire', '~> 0.5.4'
+gem "figaro", "~> 0.6.4"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -33,7 +34,7 @@ group :assets do
 end
 
 group :development, :test do
-  gem "foreman", '~> 0.60.2'
+  gem "foreman", "~> 0.63.0"
   gem 'pry', '0.9.10'
   gem 'pry-doc'
   gem 'pry-rails', '~> 0.2.2'
@@ -56,7 +57,7 @@ group :test do
   gem 'poltergeist', '>= 1.1.0'
   # gem "selenium-webdriver"
   gem "launchy", ">= 2.1.2"
-  gem 'vcr', '~> 2.3.0'
+  gem "vcr", "~> 2.5.0"
   gem 'webmock', :require => false
   gem 'shoulda-matchers'
   gem "factory_girl_rails", ">= 4.0.0"
