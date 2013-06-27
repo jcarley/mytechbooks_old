@@ -10,15 +10,6 @@ class RegisterBookCommandHandler
 
     do_work
 
-    unless success?
-      @error_message = 'Error: Unable to register book'
-    end
-
-    self
-  end
-
-  def success?
-    books.empty? ? false : true
   end
 
   private
