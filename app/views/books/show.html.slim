@@ -16,6 +16,10 @@
       = @book.sub_title
     p
       a href="#" Upload eBook
+      input type="file" id="file"
+      textarea id="log"
+      span id="explanation"
+        Go ahead, select a file. It will start uploading automatically.
 .row
   .twelve.columns
     hr
@@ -49,3 +53,4 @@
       li id="descriptionTab"
           = @book.long_description
 
+= javascript_include_tag "mule-uploader", "books"

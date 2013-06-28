@@ -14,6 +14,10 @@ module Aws
       respond_with hash
     end
 
+    def chunk_loaded
+      render :status => 200, :text => "ok"
+    end
+
     def end_signature
       hash = S3UploadRequest.new(:type => :complete, :params => params).to_h
       respond_with hash

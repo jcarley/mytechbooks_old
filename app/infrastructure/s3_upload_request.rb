@@ -1,5 +1,7 @@
 class S3UploadRequest
 
+  MIME_TYPE = "application/pdf"
+
   require 'base64'
   require 'digest'
 
