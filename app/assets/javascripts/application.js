@@ -12,5 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require_tree .
+//= require foundation/modernizr.foundation.js
+//= require foundation/jquery.foundation.forms.js
+//= require foundation/jquery.foundation.alerts.js
+//= require foundation/jquery.foundation.buttons.js
+//= require foundation/jquery.foundation.tabs.js
+//= require foundation/app.js
+
+// foundation/jquery.placeholder.js
+// foundation/jquery.foundation.accordion.js
+// foundation/jquery.foundation.tooltips.js
+// foundation/jquery.foundation.navigation.js
+// foundation/jquery.foundation.topbar.js
+// foundation/jquery.foundation.reveal.js
+// foundation/jquery.foundation.orbit.js
+// foundation/jquery.foundation.magellan.js
+// foundation/jquery.foundation.joyride.js
+// foundation/jquery.foundation.clearing.js
+// foundation/jquery.foundation.mediaQueryToggle.js
+// foundation/index.js

@@ -1,3 +1,6 @@
+- content_for(:head) do
+  = javascript_include_tag "mule-uploader", "books"
+
 .row
   .twelve.columns
     ul.button-group
@@ -53,4 +56,3 @@
       li id="descriptionTab"
           = @book.long_description
 
-= javascript_include_tag "mule-uploader", "books"
