@@ -1,8 +1,8 @@
 .row
-  #books.twelve.columns
+  #books.large-12.columns
     = render @books
 .row
-  .six.columns
+  .large-6.columns
     = paginate @books
-  .six.columns.right
+  .large-6.columns.right
     = page_entries_info @books

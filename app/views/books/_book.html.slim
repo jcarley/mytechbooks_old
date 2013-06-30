@@ -1,9 +1,9 @@
 .row id="#{book.id}"
-  .two.columns
+  .large-2.columns
     = book.cover_image
-  .ten.columns
+  .large-10.columns
     .row
-      .eight.columns
+      .large-8.columns
         h5
           = link_to book.title, book_path(book)
         h6.subheader
@@ -13,10 +13,10 @@
             | MSRP: #{book.formatted_price}
           dd
             | Pages: #{book.pages}
-      .two.columns
+      .large-2.columns
         - if can? :destroy, book
           span
             = link_to "Delete", book_path(book), :class => "tiny alert button", :method => :delete, :confirm => "Delete '#{book.title}'", :remote => true
   .row
-    .twelve.columns
+    .large-12.columns
       hr
