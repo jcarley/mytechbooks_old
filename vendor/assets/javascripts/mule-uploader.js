@@ -6,8 +6,8 @@
  * License: http://www.gnu.org/copyleft/gpl.html
  */
 
-function mule_upload(input, settings) {
-    var debug = true;
+function mule_upload(settings) {
+    var debug = false;
 
     // custom logging function that prepends a text for easy identification;
     // it is also toggled by the `debug` flag
@@ -96,7 +96,7 @@ function mule_upload(input, settings) {
     }
     log("OK")
 
-    function Uploader(input, settings) {
+    function Uploader(settings) {
         // `u` is often used as an alias for `this` to be used in nested closures
         var u = this;
 
@@ -142,125 +142,131 @@ function mule_upload(input, settings) {
 
         // set the values so that they can be used everywhere, as needed
         u.settings = settings;
-        u.input = input;
+        // u.input = input;
 
         // the "waiting" state means the uploader is waiting for the user
         // to select a file
         u.set_state("waiting");
 
-        u.input.onchange = function(e, force) {
-            // the `onchange` event may be triggered multiple times, so we
-            // must ensure that the callback is only executed the first time
-            if(u.get_state() != "waiting") {
-                return false;
-            }
-
-            // the uploader doesn't support multiple uploads at this time, so we
-            // get the first file
-            var file = e.target.files[0];
-            u.file = file;
-
-            // we use the lastModifiedDate, the file name and size to uniquely
-            // identify a file. There may be false positives and negatives,
-            // but the chance for a false positive is basically zero
-            // some browsers don't report the last modified date, so we default
-            // to a blank date
-            u.file.lastModifiedDate = u.file.lastModifiedDate || new Date(0);
-
-            if(file.size > u.settings.max_size) {
-                alert("The maximum allowed file size is " + (u.settings.max_size/GB)
-                      + "GB. Please select another file.");
-                return;
-            }
-
-            // check for accepted extensions, if applicable
-            if(u.settings.accepted_extensions) {
-                // get the file extension
-                var file_extension = file.name.split('.').pop();
-
-                // split the given extensions into an array
-                extensions_array = u.settings.accepted_extensions.split(',');
-
-                // and match the extension against the given extension list
-                var file_accepted = false;
-                for(var i=0; i<extensions_array.length; i++) {
-                    if(file_extension == extensions_array[i]) {
-                        file_accepted = true;
-                        break;
-                    }
-                }
-
-                // if the file is not accepted, notify the user and return
-                if(!file_accepted) {
-                    alert("This file format is not accepted. Please use a file with an extension like '"
-                        + u.settings.accepted_extensions);
-                    return;
-                }
-            }
-
-            // initialize the file upload
-            // we need the `init` signature for this
-            u.get_init_signature(function(signature, date) {
-                if(!u.upload_id) {
-                    // the backend doesn't report an older upload
-                    var authorization = "AWS " + settings.access_key + ":" + signature;
-                    var handler = function(e) {
-                        // trigger the on_select event callback
-                        u.settings.on_select.call(u, file);
-                        var xml = e.target.responseXML;
-
-                        // get the given upload id
-                        u.upload_id = xml.getElementsByTagName('UploadId')[0].textContent;
-
-                        // get all signatures, then initiate the file upload
-                        u.get_all_signatures(function() {
-                            u.load_file(file);
-                        });
-                    };
-                    XHR({
-                        method: "POST",
-                        url: settings.host + "/" + settings.key + "?uploads",
-                        load_callback: handler,
-                        error_callback: handler,
-                        headers: {
-                            "x-amz-date": date,
-                            "x-amz-acl": "public-read",
-                            "Authorization": authorization,
-                            "Content-Disposition": "attachment; filename=" + u.file.name
-                        }
-                    });
-                } else {
-                    // resume a previus upload
-                    if(!force) {
-                        // get the uploaded parts from S3
-                        u.list_parts(function() {
-                            // start the upload
-                            u.get_all_signatures(function() {
-                                u.load_file(file);
-                            });
-                        }, function() {
-                            // if it fails, re-initiate the upload, and force
-                            // it to start a new upload
-                            u.upload_id = null;
-                            this._loaded_chunks = null;
-                            u._progress = null;
-                            u._loaded_chunks = null;
-                            u._uploading_chunks = null;
-                            u._chunks = null;
-                            return u.input.onchange(e, true); // force reload
-                        });
-                    } else {
-                        // force-start the upload
-                        u.get_all_signatures(function() {
-                            u.load_file(file);
-                        });
-                    }
-                }
-            }, force);
-        }
+        // u.input.onchange = function(e, force) {
+        // }
 
         // trigger the init event callback
         u.settings.on_init.apply(u);
+    }
+
+    Uploader.prototype.start_upload = function(file, force) {
+      var u = this;
+
+      // the `onchange` event may be triggered multiple times, so we
+      // must ensure that the callback is only executed the first time
+      if(u.get_state() != "waiting") {
+        return false;
+      }
+
+      // the uploader doesn't support multiple uploads at this time, so we
+      // get the first file
+      // var file = e.target.files[0];
+      u.file = file;
+
+      // we use the lastModifiedDate, the file name and size to uniquely
+      // identify a file. There may be false positives and negatives,
+      // but the chance for a false positive is basically zero
+      // some browsers don't report the last modified date, so we default
+      // to a blank date
+      u.file.lastModifiedDate = u.file.lastModifiedDate || new Date(0);
+
+      if(file.size > u.settings.max_size) {
+        alert("The maximum allowed file size is " + (u.settings.max_size/GB)
+              + "GB. Please select another file.");
+              return;
+      }
+
+      // check for accepted extensions, if applicable
+      if(u.settings.accepted_extensions) {
+        // get the file extension
+        var file_extension = file.name.split('.').pop();
+
+        // split the given extensions into an array
+        extensions_array = u.settings.accepted_extensions.split(',');
+
+        // and match the extension against the given extension list
+        var file_accepted = false;
+        for(var i=0; i<extensions_array.length; i++) {
+          if(file_extension == extensions_array[i]) {
+            file_accepted = true;
+            break;
+          }
+        }
+
+        // if the file is not accepted, notify the user and return
+        if(!file_accepted) {
+          alert("This file format is not accepted. Please use a file with an extension like '"
+                + u.settings.accepted_extensions);
+                return;
+        }
+      }
+
+      // initialize the file upload
+      // we need the `init` signature for this
+      u.get_init_signature(function(signature, date) {
+        if(!u.upload_id) {
+          // the backend doesn't report an older upload
+          var authorization = "AWS " + settings.access_key + ":" + signature;
+          var handler = function(e) {
+            // trigger the on_select event callback
+            u.settings.on_select.call(u, file);
+            var xml = e.target.responseXML;
+
+            // get the given upload id
+            u.upload_id = xml.getElementsByTagName('UploadId')[0].textContent;
+
+            // get all signatures, then initiate the file upload
+            u.get_all_signatures(function() {
+              u.load_file(file);
+            });
+          };
+          XHR({
+            method: "POST",
+            url: settings.host + "/" + settings.key + "?uploads",
+            load_callback: handler,
+            error_callback: handler,
+            headers: {
+              "x-amz-date": date,
+              "x-amz-acl": "public-read",
+              "Authorization": authorization,
+              "Content-Disposition": "attachment; filename=" + u.file.name
+            }
+          });
+        } else {
+          // resume a previus upload
+          if(!force) {
+            // get the uploaded parts from S3
+            u.list_parts(function() {
+              // start the upload
+              u.get_all_signatures(function() {
+                u.load_file(file);
+              });
+            }, function() {
+              // if it fails, re-initiate the upload, and force
+              // it to start a new upload
+              u.upload_id = null;
+              this._loaded_chunks = null;
+              u._progress = null;
+              u._loaded_chunks = null;
+              u._uploading_chunks = null;
+              u._chunks = null;
+              // return u.input.onchange(e, true); // force reload
+              return u.start_upload(file, true); // force reload
+            });
+          } else {
+            // force-start the upload
+            u.get_all_signatures(function() {
+              u.load_file(file);
+            });
+          }
+        }
+      }, force);
     }
 
     // this initiates the file upload
@@ -542,7 +548,8 @@ function mule_upload(input, settings) {
                     // 404 = NoSuchUpload = check if already finished
                     // if so, start a new upload
                     u.cancel(function() {
-                        u.input.onchange(null, true);
+                        // u.input.onchange(null, true);
+                        u.start_upload(null, true);
                     });
                 } else {
                     u.check_already_uploaded(function() {
@@ -1077,5 +1084,5 @@ function mule_upload(input, settings) {
         return true;
     }
 
-    return new Uploader(input, settings);
+    return new Uploader(settings);
 };

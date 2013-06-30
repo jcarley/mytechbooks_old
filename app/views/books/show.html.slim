@@ -2,57 +2,61 @@
   = javascript_include_tag "mule-uploader", "books"
 
 .row
-  .twelve.columns
+  .large-12.columns
     ul.button-group
       li = link_to "Edit", edit_book_path(@book), :class => "small button"
       li = link_to "Delete", book_path(@book), :class => "small button", :method => :delete, :confirm => "Delete '#{@book.title}'", :remote => true
     hr
 .row
-  .two.columns
+  .large-2.columns
     = @book.cover_image
-  .ten.columns
+  .large-10.columns
     h5
       = @book.title
     h6
       = @book.publisher
     h6.subheader
       = @book.sub_title
-    p
-      a href="#" Upload eBook
-      input type="file" id="file"
-      textarea id="log"
-      span id="explanation"
-        Go ahead, select a file. It will start uploading automatically.
+    .row
+      .large-6.columns
+        a href="#" id="start_book_upload" Upload | 
+        a href="#" id="cancel_book_upload" Cancel
+        input.uploader type="file" id="file"
+        .progress.large-10.columns: span.meter style="width:0%"
+        ul id="file_list"
 .row
-  .twelve.columns
+  .large-12.columns
     hr
 .row
-  .twelve.columns
-
-    dl.tabs
-      dd.active = link_to "Details", "#details"
-      dd = link_to "Description", "#description"
-
-    ul.tabs-content
-      li.active id="detailsTab"
-        ul.none
-          li
-            b = "#{@book.binding}:"
-            = " #{@book.pages} pages"
-          li
-            b Publisher:
-            = " #{@book.publisher}"
-          li
-            b ISBN:
-            = " #{@book.isbn}"
-          li
-            b Edition:
-            = " #{@book.edition}"
-          li
-            b MSRP:
-            = " #{@book.formatted_price}"
-          li
-            b = link_to "Further Details",  @book.details_url
-      li id="descriptionTab"
-          = @book.long_description
+  .large-12.columns
+    .section-container.auto[data-section]
+      section
+        p.title[data-section-title]
+          = link_to "Details", "#details"
+        .content[data-section-content]
+          ul.no-bullet
+            li
+              b = "#{@book.binding}:"
+              = " #{@book.pages} pages"
+            li
+              b Publisher:
+              = " #{@book.publisher}"
+            li
+              b ISBN:
+              = " #{@book.isbn}"
+            li
+              b Edition:
+              = " #{@book.edition}"
+            li
+              b MSRP:
+              = " #{@book.formatted_price}"
+            li
+              b = link_to "Further Details",  @book.details_url
+      section
+        p.title[data-section-title]
+          = link_to "Description", "#description"
+        .content[data-section-content]
+          .row
+            .small-11.small-centered.columns
+              = @book.long_description
 
