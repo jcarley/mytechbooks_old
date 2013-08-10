@@ -11,7 +11,7 @@ gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.0.2"
-gem "draper", '~> 0.18.0'
+gem "draper"
 gem 'hashie', '~> 1.2.0'
 gem 'redis-store', '~> 1.1.3'
 gem 'httpclient', '~> 2.3.0.1'

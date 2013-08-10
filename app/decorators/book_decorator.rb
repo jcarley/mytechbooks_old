@@ -1,10 +1,9 @@
-class BookDecorator < Draper::Base
+class BookDecorator < Draper::Decorator
   decorates :book
-
-  denies :description
+  delegate :id, :user_id, :title, :publisher, :binding, :pages, :isbn, :edition, :formatted_price, :details_url, :medium_img_url
 
   def cover_image
-    h.image_tag(book.medium_img_url)
+    h.image_tag(model.medium_img_url)
   end
 
   def sub_title
@@ -12,16 +11,16 @@ class BookDecorator < Draper::Base
   end
 
   def published_formatted_date
-    book.published_on.strftime("%b %Y")
+    model.published_on.strftime("%b %Y")
   end
 
   def long_description
-    book.description.nil? ? "No description at this time." : book.description.html_safe
+    model.description.nil? ? "No description at this time." : model.description.html_safe
   end
 
   def sanitized_author
     regex = /\[|\]|"/
-    book.author.gsub(regex, '')
+    model.author.gsub(regex, '')
   end
 
 end

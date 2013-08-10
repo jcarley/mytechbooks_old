@@ -29,7 +29,7 @@ describe BooksController, :vcr do
 
       it "should have a successful result" do
         post :create, :book => params
-        expect(assigns(:result)[:success]).to be_true
+        expect(assigns(:book)).to_not be_nil
       end
     end
 
@@ -44,13 +44,13 @@ describe BooksController, :vcr do
       end
 
       it "should not have a successful result" do
-        post :create, :book => params
-        expect(assigns(:result)[:success]).to be_false
+        post :create, :book => params, :format => :js
+        expect(assigns(:book)).to be_nil
       end
 
-      it "should have a error message" do
-        post :create, :book => params
-        expect(assigns(:result)[:error_message]).to_not be_nil
+      it "should have an error message" do
+        post :create, :book => params, :format => :js
+        expect(response.body).to match /Unable to register book with isbn equal to/
       end
 
     end

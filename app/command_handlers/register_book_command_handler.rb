@@ -1,6 +1,6 @@
 class RegisterBookCommandHandler
 
-  attr_reader :user_id, :isbn, :error_message
+  attr_reader :user_id, :isbn
   attr_accessor :books
 
   def execute(user_id, isbn)
@@ -9,7 +9,6 @@ class RegisterBookCommandHandler
     @books = []
 
     do_work
-
   end
 
   private

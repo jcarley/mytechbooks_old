@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   before_filter :authenticate_user!
 
   def show
-    @book = BookDecorator.find(params[:id])
+    @book = Book.find(params[:id]).decorate
   end
 
   def new
@@ -15,7 +15,7 @@ class BooksController < ApplicationController
   def create
     execute_command(:register_book, current_user.id, params[:book][:isbn])
     result = Book.where(:isbn => params[:book][:isbn]).first
-    @book = BookDecorator.decorate(result)
+    @book = BookDecorator.decorate(result) if result
 
     respond_with :js
   end

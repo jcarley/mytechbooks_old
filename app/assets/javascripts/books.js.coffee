@@ -34,6 +34,8 @@ $ ->
 
   $("#cancel_book_upload").click (e) ->
     if window.uploader
-      window.uploader.cancel
+      window.uploader.cancel ->
+        alert "Canceled."
+        window.uploader = null
 
 
