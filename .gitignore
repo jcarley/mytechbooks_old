@@ -21,6 +21,7 @@ tags
 /vendor/bundle/
 /vendor/ruby/
 /bin/
+bin
 
 # minimal Rails specific artifacts
 db/*.sqlite3
