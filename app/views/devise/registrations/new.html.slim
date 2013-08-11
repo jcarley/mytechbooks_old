@@ -2,27 +2,27 @@ h3 Sign up
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   .row
-    .two.columns
+    .large-2.columns
       = f.label :name, :class => "right inline"
-    .ten.columns
-      = f.text_field :name, :class => "six"
+    .large-10.columns
+      = f.text_field :name, :class => "large-6"
   .row
-    .two.columns
+    .large-2.columns
       = f.label :email, :class => "right inline"
-    .ten.columns
-      = f.email_field :email, :class => "six"
+    .large-10.columns
+      = f.email_field :email, :class => "large-6"
   .row
-    .two.columns
+    .large-2.columns
       = f.label :password, :class => "right inline"
-    .ten.columns
-      = f.password_field :password, :class => "six"
+    .large-10.columns
+      = f.password_field :password, :class => "large-6"
   .row
-    .two.columns
+    .large-2.columns
       = f.label :password_confirmation, :class => "right inline"
-    .ten.columns
-      = f.password_field :password_confirmation, :class => "six"
+    .large-10.columns
+      = f.password_field :password_confirmation, :class => "large-6"
   .row
-    .eight.columns
+    .large-8.columns
       = f.submit "Sign up", :class => "button"
 
 = render "devise/shared/links"

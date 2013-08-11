@@ -1,44 +1,56 @@
 doctype 5
 html
   head
-    title= content_for?(:title) ? yield(:title) : "Mytechbooks"
     meta charset="utf-8"
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     meta content=(content_for?(:description) ? yield(:description) : "Mytechbooks") name="description"
+
+    title= content_for?(:title) ? yield(:title) : "Mytechbooks"
+
     = stylesheet_link_tag "application", :media => "all"
-    = javascript_include_tag "application", "vendor/custom.modernizr"
+    = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
+
     = yield(:head)
-  body *{:class => "#{controller_name} #{action_name}"}
-    .row
-      .large-12.columns
 
-        .row
-          .large-12.columns
-            nav.top-bar
-              ul.title-area
-                li.name
-                  h1
-                    = link_to "MyTechBookLibrary.com", root_path
-                li.toggle-topbar.menu-icon
-                  a href="#": span Menu
+  body
+    #application ng-app="mytechbooks"
+      .row
+        .large-12.columns
 
-              section.top-bar-section
-                - if user_signed_in?
-                  ul.left
-                    li
-                      = link_to "Add a Book", new_book_path
-                    li
-                      = link_to "Search", search_path
-                ul.right
-                  = render "layouts/navigation"
-        .row
-          = render 'layouts/messages'
-          .large-12.columns
-            = yield
+          .row
+            .large-12.columns
+              nav.top-bar
+                ul.title-area
+                  li.name
+                    h1
+                      = link_to "MyTechBookLibrary.com", root_path
+                  li.toggle-topbar.menu-icon
+                    a href="#": span Menu
 
-        footer class="row" style="margin-top:25px"
-          .large-12.columns
-            .row
-              .large-6.columns
-                p &copy; Copyright 2012 - Finish First Software
+                section.top-bar-section
+                  - if user_signed_in?
+                    ul.left
+                      li
+                        = link_to "Add a Book", new_book_path
+                      li
+                        = link_to "Search", search_path
+                  ul.right
+                    = render "layouts/navigation"
+          .row
+            = render 'layouts/messages'
+            .large-12.columns
+              = yield
+
+          footer class="row" style="margin-top:25px"
+            .large-12.columns
+              .row
+                .large-6.columns
+                  p &copy; Copyright 2012 - Finish First Software
+
+
+  = javascript_include_tag "jquery"
+  = javascript_include_tag "angular.min.js"
+  = javascript_include_tag "angular-resource.min.js"
+  = javascript_include_tag "application"
+  = yield(:javascript)
