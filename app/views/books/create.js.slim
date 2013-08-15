@@ -1,7 +1,0 @@
-- if @book
-  | $("#books").prepend("#{j render(@book)}");
-  | $("#messages").html("<span>You have successfully registered this book.</span>");
-  | $("#book_isbn").val("").focus();
-- else
-  | alert("Unable to register book with isbn equal to '#{params[:book][:isbn]}'");
-
