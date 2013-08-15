@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.13'
 gem 'jquery-rails'
+gem 'jbuilder'
 gem "puma", ">= 1.6.2"
 gem "mongoid", ">= 3.0.5"
 gem 'bson', '~> 1.8.0'

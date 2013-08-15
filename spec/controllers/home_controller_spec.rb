@@ -25,12 +25,6 @@ describe HomeController do
       assigns(:books).should eq([book])
     end
 
-    it "should list book result" do
-      book = @user.books.first
-      get :index
-      expect(response.body).to have_content(book.title)
-      expect(response.body).to have_content(book.author)
-    end
 
   end
 

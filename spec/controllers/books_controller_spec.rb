@@ -49,7 +49,7 @@ describe BooksController, :vcr do
       end
 
       it "should have an error message" do
-        post :create, :book => params, :format => :js
+        post :create, :book => params, :format => :json
         expect(response.body).to match /Unable to register book with isbn equal to/
       end
 
