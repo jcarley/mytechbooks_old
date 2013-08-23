@@ -29,7 +29,7 @@ html
                     a href="#": span Menu
 
                 section.top-bar-section
-                  - if user_signed_in?
+                  - if signed_in?
                     ul.left
                       li
                         = link_to "Add a Book", new_book_path
@@ -40,7 +40,7 @@ html
           .row
             = render 'layouts/messages'
             .large-12.columns
-              = yield
+              | <ng-view></ng-view>
 
           footer class="row" style="margin-top:25px"
             .large-12.columns

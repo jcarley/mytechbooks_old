@@ -1,0 +1,12 @@
+@appModule = angular.module 'mytechbooks', ['ngResource']
+
+appModule.config ['$httpProvider', '$routeProvider', '$locationProvider', ($httpProvider, $routeProvider, $locationProvider) ->
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+
+  $locationProvider.html5Mode true
+  $routeProvider
+    .when "/",
+      templateUrl: "<%= asset_path('app/templates/home/index.html') %>",
+      controller: "HomeController"
+]
+

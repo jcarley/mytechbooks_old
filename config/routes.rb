@@ -1,14 +1,18 @@
 Mytechbooks::Application.routes.draw do
 
-  authenticated :user do
-    root :to => 'home#index'
+  constraints Clearance::Constraints::SignedOut.new do
+    root to: 'clearance/sessions#new'
   end
+  root :to => 'layouts#index'
 
-  devise_for :users
+  # authenticated :user do
+  # end
 
-  devise_scope :user do
-    match '/' => 'devise/sessions#new'
-  end
+  # devise_for :users
+
+  # devise_scope :user do
+    # match '/' => 'devise/sessions#new'
+  # end
 
   resources :users
   resources :books
@@ -24,5 +28,6 @@ Mytechbooks::Application.routes.draw do
     get "/get_all_signatures",   :to => "uploads#all"
   end
 
+  match "*path" => "layouts#index"
 
 end

@@ -1,0 +1,26 @@
+.row
+  #books.large-12.columns
+    .book ng-repeat="book in books"
+      .row id="{{book.id}}"
+        .large-2.columns
+          img ng-src="{{book.cover_image}}"
+        .large-10.columns
+          .row
+            .large-8.columns
+              h5
+                a href="#"
+                  | {{book.title}}
+              h6.subheader
+                | {{book.sub_title}}
+              dl
+                dd
+                  | MSRP: {{book.formatted_price}}
+                dd
+                  | Pages: {{book.pages}}
+            .large-2.columns
+              span
+                a.tiny.alert.button href="#"
+                  | Delete {{book.title}}
+        .row
+          .large-12.columns
+            hr

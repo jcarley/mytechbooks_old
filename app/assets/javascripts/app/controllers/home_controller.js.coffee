@@ -1,7 +1,9 @@
-appModule.controller 'HomeController', ['$scope', 'BookService' ($scope, bookService) ->
+appModule.controller 'HomeController', ['$scope', 'BookService', ($scope, bookService) ->
 
-  bookService.index (data) ->
-    $scope.books = data
+  $scope.welcome = "Hello world."
+  $scope.books = bookService.getBooks()
+
+  # bookService.index (data) ->
 
   # $scope.books =
     # [

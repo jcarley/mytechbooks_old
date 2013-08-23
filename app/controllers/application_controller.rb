@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Clearance::Controller
   include CommandBus
 
   protect_from_forgery

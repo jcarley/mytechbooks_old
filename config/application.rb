@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-# require "active_record/railtie"
+require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
@@ -16,8 +16,6 @@ end
 
 module Mytechbooks
   class Application < Rails::Application
-
-    config.mongoid.preload_models = false
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
