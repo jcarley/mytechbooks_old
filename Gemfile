@@ -65,5 +65,6 @@ group :development do
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
   gem 'desi'
+  gem 'puppet'
 end
 

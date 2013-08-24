@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822031135) do
+ActiveRecord::Schema.define(:version => 20130823152847) do
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "ean"
+    t.string   "isbn"
+    t.integer  "pages"
+    t.string   "binding"
+    t.integer  "edition"
+    t.string   "formatted_price"
+    t.string   "asin"
+    t.string   "amount"
+    t.string   "details_url"
+    t.string   "description"
+    t.string   "small_img_url"
+    t.string   "medium_img_url"
+    t.string   "large_img_url"
+    t.string   "publisher"
+    t.date     "published_on"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
