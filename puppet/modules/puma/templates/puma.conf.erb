@@ -18,7 +18,7 @@ script
 exec /bin/bash <<EOT
   export HOME=/home/<%= @run_as_user %>
 
-  source /home/<%= run_as_user %>/.bashrc
+  source /home/<%= @run_as_user %>/.bashrc
 
   logger -t puma "Starting server: $app"
 

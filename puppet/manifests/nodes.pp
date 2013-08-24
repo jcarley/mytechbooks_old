@@ -1,33 +1,4 @@
 node default {
-  include stdlib
-  include roles::setup
-  include java
-
-  $run_as_user = "jenkins"
-  $ruby_version = 'jruby-1.7.4'
-
-  package { ['git', 'wget', 'curl', 'vim']:
-    ensure => installed,
-  } ->
-
-  roles::user { 'install_jenkins_user':
-    run_as_user   => $run_as_user,
-    password      => 'changeme',
-    primary_group => $run_as_user,
-    groups        => ['admin', 'sudo', 'adm'],
-  } ->
-
-  class { 'roles::www::node': } ->
-
-  class { 'roles::ruby':
-    run_as_user => $run_as_user,
-    version     => $ruby_version,
-  } ->
-
-  class { 'roles::infrastructure': }
-}
-
-node dev01 {
   include apt
   include stdlib
   include roles::infrastructure
@@ -37,11 +8,22 @@ node dev01 {
   $ruby_home_path = "/home/${run_as_user}/.rbenv/versions/${ruby_version}"
   $base_app_home = "/home/${run_as_user}/apps"
 
-  class { 'roles::setup': }
+
+  file { "${home_dir}/.bash_aliases":
+    ensure => present,
+  } ->
+
+  line { 'create aliases':
+    file    => "${home_dir}/.bash_aliases",
+    line    => 'alias be="bundle exec"',
+    ensure  => present,
+  }
 
   package { ['git', 'wget', 'curl', 'vim', 'nfs-common']:
     ensure => installed,
   }
+
+  class { 'roles::setup': } ->
 
   class { 'java': } ->
 
@@ -51,6 +33,15 @@ node dev01 {
     run_as_user  => $run_as_user,
     ruby_version => '2.0.0-p247',
     rails_env    => 'development',
+  } ->
+
+  puma::app { 'mytechbooks':
+    app_path         => "${base_app_home}/mytechbooks",
+    run_as_user      => $run_as_user,
+    ensure           => "present",
+    ruby_home_path   => $run_home_path,
+    rails_env        => "development",
   }
+
 
 }

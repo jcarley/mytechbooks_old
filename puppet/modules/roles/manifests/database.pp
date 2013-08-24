@@ -1,11 +1,11 @@
 class roles::database {
 
   package { ['mysql-server', 'libmysqlclient-dev']:
-    ensure => present,
-  } ->
+    ensure => absent,
+  } # ->
 
-  service { 'mysql':
-    enable => true,
-    ensure => running,
-  }
+  # service { 'mysql':
+    # enable => true,
+    # ensure => running,
+  # }
 }
