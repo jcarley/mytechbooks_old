@@ -3,7 +3,6 @@
 
 Vagrant.configure("2") do |config|
 
-
   config.vm.provision :shell, :path => "puppet/puppet-install.sh"
 
   config.vm.provision :puppet, :module_path => "puppet/modules" do |puppet|
@@ -27,8 +26,9 @@ Vagrant.configure("2") do |config|
                    "--nictype2", "Am79C973"]
     end
 
-    config.vm.box = "basedevel"
-    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    # config.vm.box = "basedevel"
+    config.vm.box = "precise64"
+    config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
 
     config.vm.hostname = host_name
     config.vm.network :private_network, ip: "33.33.33.10"

@@ -1,7 +1,7 @@
 class roles::www::webserver (
   $run_as_user,
   $ruby_version = '2.0.0-p247',
-  $rails_env,
+  $rails_env = 'development',
 ){
 
   anchor { "roles::www::webserver::being": } ->

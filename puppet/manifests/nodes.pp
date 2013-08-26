@@ -14,6 +14,8 @@ node default {
   $database_username = 'mytechbooks'
   $database_password = 'letmein123'
 
+  $rails_env = "development"
+
   file { "${home_dir}/.bash_aliases":
     ensure => present,
   } ->
@@ -30,7 +32,7 @@ node default {
 
   class { 'roles::setup': } ->
 
-  class { 'java': } ->
+  # class { 'java': } ->
 
   class { 'roles::database':
     db_name  => $database_name,
@@ -41,7 +43,7 @@ node default {
   class { 'roles::www::webserver':
     run_as_user  => $run_as_user,
     ruby_version => $ruby_version,
-    rails_env    => 'development',
+    rails_env    => $rails_env,
   } ->
 
   puma::app { $application_name:
@@ -50,8 +52,7 @@ node default {
     ensure         => "present",
     port           => 9292,
     ruby_home_path => $ruby_home_path,
-    rails_env      => "development",
+    rails_env      => $rails_env,
   }
-
 
 }

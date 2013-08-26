@@ -4,9 +4,9 @@ class roles::database(
   $password = "",
 ){
 
-  package { ['mysql-server', 'libmysqlclient-dev']:
-    ensure => absent,
-  } # ->
+  # package { ['mysql-server', 'libmysqlclient-dev']:
+    # ensure => absent,
+  # } ->
 
   # service { 'mysql':
     # enable => true,
