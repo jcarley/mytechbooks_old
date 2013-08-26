@@ -45,11 +45,12 @@ define puma::app(
   }
 
   if $ensure == "present" {
+
     line { "add-app ${app_path}":
       file => "/etc/puma.conf",
       line => $app_path,
       require => File[$config_file],
-    }
+    } ->
 
     exec {"run bundle ${app_path}":
       command => "${ruby_home_path}/bundle install ${bundle_opts}",
@@ -59,7 +60,7 @@ define puma::app(
       group   => 'root',
       timeout => 0,
       notify  => Exec["run puma ${app_path}"],
-    }
+    } ->
 
     exec { "run puma ${app_path}":
       command     => "sudo restart puma-manager",

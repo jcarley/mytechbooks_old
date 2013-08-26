@@ -36,7 +36,7 @@ group :development, :test do
   gem 'pry', '0.9.10'
   gem 'pry-doc'
   gem 'pry-rails', '~> 0.2.2'
-  gem 'pry-debugger'
+  gem 'pry-nav'
 end
 
 group :test do

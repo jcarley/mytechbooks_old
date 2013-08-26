@@ -3,22 +3,37 @@ class roles::ruby::setup(
   $update = false,
 ) {
 
-  rbenv::install { "${run_as_user}":
-    group   => "${run_as_user}",
-    home    => "/home/${run_as_user}",
-    rc      => ".bashrc",
+  $user_home = "/home/${run_as_user}"
+
+  file { "${user_home}/.bashenv":
+    ensure => 'present',
+    owner  => $run_as_user,
+    group  => $run_as_user,
   } ->
 
-  file {
-    "/home/${run_as_user}/.gemrc":
-      content => "
-      :verbose: true
-      :update_sources: true
-      :backtrace: false
-      :bulk_threshold: 1000
-      :benchmark: false
-      gem: --no-ri --no-rdoc
-      "
+  exec { 'source bashenv':
+    command => "sed -i '4i source ${user_home}/.bashenv' .bashrc",
+    cwd     => $user_home,
+    unless  => "grep 'source ${user_home}/.bashenv' .bashrc 2>/dev/null",
+  } ->
+
+  rbenv::install { $run_as_user:
+    group   => $run_as_user,
+    home    => $user_home,
+    rc      => ".bashenv",
+  } ->
+
+  file { "${user_home}/.gemrc":
+    content => "
+    :verbose: true
+    :update_sources: true
+    :backtrace: false
+    :bulk_threshold: 1000
+    :benchmark: false
+    gem: --no-ri --no-rdoc
+    ",
+    owner => $run_as_user,
+    group => $run_as_user,
   } ->
 
   rbenv::plugin { "rbenv-gem-rehash":
