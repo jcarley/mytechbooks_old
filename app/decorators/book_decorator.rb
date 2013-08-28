@@ -3,7 +3,7 @@ class BookDecorator < Draper::Decorator
   delegate :id, :user_id, :title, :publisher, :binding, :pages, :isbn, :edition, :formatted_price, :details_url, :medium_img_url
 
   def cover_image
-    h.image_tag(model.medium_img_url)
+    model.medium_img_url
   end
 
   def sub_title

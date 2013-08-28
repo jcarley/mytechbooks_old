@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   rolify
 
-  # has_many :books
+  has_many :books
 
   # def register_book(book)
     # self.books << book unless book.nil?

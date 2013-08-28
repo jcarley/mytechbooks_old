@@ -46,13 +46,21 @@ node default {
     rails_env    => $rails_env,
   } ->
 
-  puma::app { $application_name:
-    app_path       => "${base_app_home}/${application_name}",
-    run_as_user    => $run_as_user,
-    ensure         => "present",
-    port           => 9292,
-    ruby_home_path => $ruby_home_path,
-    rails_env      => $rails_env,
+  class { 'roles::www::webapp':
+    run_as_user      => $run_as_user,
+    ruby_home_path   => $ruby_home_path,
+    application_name => $application_name,
+    virtual_host     => 'www.mytechbooks.com',
+    base_app_home    => $base_app_home,
   }
+
+  # puma::app { $application_name:
+    # app_path       => "${base_app_home}/${application_name}",
+    # run_as_user    => $run_as_user,
+    # ensure         => "present",
+    # port           => 9292,
+    # ruby_home_path => $ruby_home_path,
+    # rails_env      => $rails_env,
+  # }
 
 }

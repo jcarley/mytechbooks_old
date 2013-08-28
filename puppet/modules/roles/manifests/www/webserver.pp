@@ -20,19 +20,12 @@ class roles::www::webserver (
     global      => true,
   } ->
 
-  package { 'nginx':
-    ensure => present,
-  } ->
-
-  service { 'nginx':
-    enable => true,
-    ensure => running,
-  } ->
+  class { 'nginx': }
 
   class { "puma::init":
     run_as_user => $run_as_user,
     rails_env   => $rails_env,
-  } ->
+  }
 
   anchor { "roles::www::webserver::end": }
 }
