@@ -63,7 +63,7 @@ define puma::app(
     } ->
 
     exec { "run puma ${app_path}":
-      command     => "sudo restart puma-manager",
+      command     => "sudo stop puma-manager; sudo start puma-manager",
       path        => "${ruby_home_path}/bin:${path}",
       user        => $run_as_user,
       group       => $run_as_user,
