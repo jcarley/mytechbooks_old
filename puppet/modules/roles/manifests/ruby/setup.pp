@@ -25,13 +25,12 @@ class roles::ruby::setup(
 
   file { "${user_home}/.gemrc":
     content => "
-    :verbose: true
-    :update_sources: true
-    :backtrace: false
-    :bulk_threshold: 1000
-    :benchmark: false
-    gem: --no-ri --no-rdoc
-    ",
+:verbose: true
+:update_sources: true
+:backtrace: false
+:bulk_threshold: 1000
+:benchmark: false
+gem: --no-ri --no-rdoc",
     owner => $run_as_user,
     group => $run_as_user,
   } ->

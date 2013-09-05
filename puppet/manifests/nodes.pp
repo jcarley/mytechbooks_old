@@ -32,7 +32,7 @@ node default {
 
   class { 'roles::setup': } ->
 
-  # class { 'java': } ->
+  class { 'java': } ->
 
   class { 'roles::database':
     db_name  => $database_name,
@@ -52,15 +52,12 @@ node default {
     application_name => $application_name,
     virtual_host     => 'www.mytechbooks.com',
     base_app_home    => $base_app_home,
-  }
+  } ->
 
-  # puma::app { $application_name:
-    # app_path       => "${base_app_home}/${application_name}",
-    # run_as_user    => $run_as_user,
-    # ensure         => "present",
-    # port           => 9292,
-    # ruby_home_path => $ruby_home_path,
-    # rails_env      => $rails_env,
-  # }
+ roles::ruby::rake { "application setup":
+  run_as_user    => $run_as_user,
+  ruby_home_path => $ruby_home_path,
+  app_home       => "${base_app_home}/${application_name}",
+ }
 
 }
